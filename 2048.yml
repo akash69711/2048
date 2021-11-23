@@ -24,6 +24,8 @@ spec:
               image: kubernetespoc.jfrog.io/default-docker-local/2048:db675152f7014711dd97ab4d0dceb2c7f3b4d4ca
               ports:
                 - containerPort: 80
+            imagePullSecrets:
+                - name: regcred    
 ---
 apiVersion: v1
 kind: Service
