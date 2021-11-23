@@ -21,11 +21,18 @@ spec:
         spec:
             containers:
             - name: "2048-game"
-              image: kubernetespoc.jfrog.io/REPOSITORY/IMAGE:TAG
+              image: kubernetespoc.jfrog.io/default-docker-local/2048:db675152f7014711dd97ab4d0dceb2c7f3b4d4ca
               ports:
                 - containerPort: 80
+              livenessProbe: 
+                httpGet: 
+                  path: /healthz
+                  port: 8080
+                initialDelaySeconds: 2
+                periodSeconds: 2  
             imagePullSecrets:
-                - name: regcred    
+                - name: regcred  
+
 ---
 apiVersion: v1
 kind: Service
