@@ -21,7 +21,7 @@ spec:
         spec:
             containers:
             - name: "2048-game"
-              image: kubernetespoc.jfrog.io/REPOSITORY/IMAGE:TAG
+              image: ghcr.io/mvkaran/2048:v0.1.0
               ports:
                 - containerPort: 80
 ---
