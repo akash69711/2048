@@ -21,7 +21,7 @@ spec:
         spec:
             containers:
             - name: "2048-game"
-              image: kubernetespoc.jfrog.io/default-docker-local/2048:44c46263f610a4800ad86dd00779622af7204aa1
+              image: kubernetespoc.jfrog.io/$REPOSITORY/$IMAGE:$GITHUB_SHA
               ports:
                 - containerPort: 80
 ---
