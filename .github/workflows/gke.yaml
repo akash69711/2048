@@ -26,6 +26,7 @@ env:
   GKE_ZONE: asia-south1-a   # TODO: update to cluster zone
   DEPLOYMENT_NAME: 2048-app # TODO: update to deployment name
   IMAGE: 2048
+  REPOSITORY: default-docker-virtual
 
 jobs:
   setup-build-publish-deploy:
@@ -65,15 +66,15 @@ jobs:
     - name: Build
       run: |-
         docker build \
-          --tag "kubernetespoc.jfrog.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA" \
+          --tag "kubernetespoc.jfrog.io/$REPOSITORY/$IMAGE:$GITHUB_SHA" \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
           --build-arg GITHUB_REF="$GITHUB_REF" \
           .
 
-    # Push the Docker image to Google Container Registry
+    # Push the Docker image to JFROG Artifactory Container Registry
     - name: Publish
       run: |-
-        docker push "kubernetespoc.jfrog.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
+        docker push "kubernetespoc.jfrog.io/$REPOSITORY/$IMAGE:$GITHUB_SHA"
 
     # # Set up kustomize
     # - name: Set up Kustomize
