@@ -21,7 +21,7 @@ spec:
         spec:
             containers:
             - name: "2048-game"
-              image: kubernetespoc.jfrog.io/REPOSITORY/IMAGE:TAG
+              image: kubernetespoc.jfrog.io/$REPOSITORY/$IMAGE:$GITHUB_SHA
               ports:
                 - containerPort: 80
               livenessProbe: 
@@ -30,9 +30,9 @@ spec:
                   port: 8080
                 initialDelaySeconds: 2
                 periodSeconds: 2  
-            # imagePullSecrets:
-            #     - name: regcred  
-
+            imagePullSecrets:
+                - name: regcred  
+                
 ---
 apiVersion: v1
 kind: Service
