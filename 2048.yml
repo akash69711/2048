@@ -5,7 +5,7 @@ metadata:
     labels:
         app: "2048"
 spec:
-    replicas: 2
+    replicas: 3
     strategy:
       type: RollingUpdate
       rollingUpdate:
@@ -23,7 +23,19 @@ spec:
             - name: "2048-game"
               image: kubernetespoc.jfrog.io/REPOSITORY/IMAGE:TAG
               ports:
-                - containerPort: 80 
+                - containerPort: 80
+              livenessProbe: 
+                httpGet: 
+                  path: /healthy
+                  port: 80
+                initialDelaySeconds: 2
+                periodSeconds: 2
+              readinessProbe: 
+                httpGet: 
+                  path: /healthz
+                  port: 80
+                initialDelaySeconds: 2
+                periodSeconds: 2  
             imagePullSecrets:
                 - name: regcred  
                 
