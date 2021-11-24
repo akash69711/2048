@@ -24,8 +24,8 @@ spec:
               image: kubernetespoc.jfrog.io/REPOSITORY/IMAGE:TAG
               ports:
                 - containerPort: 80 
-            imagePullSecrets:
-                - name: regcred  
+            # imagePullSecrets:
+            #     - name: regcred  
                 
 ---
 apiVersion: v1
