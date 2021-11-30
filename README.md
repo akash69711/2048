@@ -40,5 +40,5 @@ I made this in my spare time, and it's hosted on GitHub (which means I don't hav
 ## Modifications by @mvkaran
 Added Dockerfile, K8s manifest & ECS task definitions for demo
 
-## Modifications by @akash69711
-Added Github Actions workflow, modified 2048.yml deployment manifest file, Setup CICD to deploy on k8s GCP cluster, used Jfrog Artifactory to store container images.
+## Modifications by @akashwh7
+Added Github Actions workflow file, modified 2048.yml deployment manifest file, added kustomization.yml, Setup CICD to deploy on GKE cluster, used Jfrog Artifactory to store container images. Any static app can be stored in app-code directory.
