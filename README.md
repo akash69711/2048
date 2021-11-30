@@ -41,4 +41,4 @@ I made this in my spare time, and it's hosted on GitHub (which means I don't hav
 Added Dockerfile, K8s manifest & ECS task definitions for demo
 
 ## Modifications by @akash69711
-Added Github Actions workflow, modified 2048.yml deployment file, Setup CICD to deploy on k8s GCP cluster, used Jfrog Artifactory to store container images.
+Added Github Actions workflow, modified 2048.yml deployment manifest file, Setup CICD to deploy on k8s GCP cluster, used Jfrog Artifactory to store container images.
