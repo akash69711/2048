@@ -30,7 +30,8 @@ spec:
                   memory: 180Mi
                 limits:
                   cpu: 300m
-                  memory: 300Mi  
+                  memory: 300Mi
+# To check if liveness and readiness probes are working execute the following command and describe pods: kubectl exec -it <POD_NAME> -- rm /usr/share/nginx/html/healthy                
               livenessProbe: 
                 httpGet: 
                   path: /healthy
@@ -45,10 +46,13 @@ spec:
                   path: /healthy
                   port: 80
                 initialDelaySeconds: 2
-                periodSeconds: 2  
+                periodSeconds: 2 
+# Following parameters will use the JFROG registry credentials stored in cluster to pull container images                 
             imagePullSecrets:
                 - name: regcred  
-                
+
+
+# Service - Loadbalancer                
 ---
 apiVersion: v1
 kind: Service
