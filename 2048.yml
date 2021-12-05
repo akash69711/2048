@@ -35,8 +35,11 @@ spec:
                 httpGet: 
                   path: /healthy
                   port: 80
-                initialDelaySeconds: 2
-                periodSeconds: 2
+                initialDelaySeconds: 2 #Default 0 
+                periodSeconds: 2 #Default 10 
+                timeoutSeconds: 1 #Default 1 
+                successThreshold: 1 #Default 1 
+                failureThreshold: 3 #Default 3
               readinessProbe: 
                 httpGet: 
                   path: /healthy
