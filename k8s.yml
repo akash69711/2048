@@ -57,7 +57,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name:  "game-2048"
+  name:  "2048-loadbalancer"
 spec:
   selector:
     app:  "2048"
