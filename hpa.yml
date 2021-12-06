@@ -1,0 +1,15 @@
+#Horizontal Pod AutoScaler (HPA)
+
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+ name: testingHPA
+
+spec:
+ scaleTargetRef:
+   apiVersion: apps/v1beta1
+   kind: Deployment
+   name: 2048-app
+ minReplicas: 1
+ maxReplicas: 3
+ targetCPUUtilizationPercentage: 20
