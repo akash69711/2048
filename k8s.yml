@@ -26,11 +26,11 @@ spec:
                 - containerPort: 80
               resources:
                 requests:
-                  cpu: 200m
-                  memory: 180Mi
+                  cpu: 100m
+                  memory: 32Mi
                 limits:
-                  cpu: 300m
-                  memory: 300Mi
+                  cpu: 100m
+                  memory: 64Mi
 # To check if liveness and readiness probes are working execute the following command and describe pods: kubectl exec -it <POD_NAME> -- rm /usr/share/nginx/html/healthy                
               livenessProbe: 
                 httpGet: 
