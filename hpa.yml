@@ -1,4 +1,7 @@
-#Horizontal Pod AutoScaler (HPA)
+# Horizontal Pod AutoScaler (HPA)
+# To produce some load on the service we will use, a tool called wrk. The following will open 600 connections using 600 threads for a period of 15 mins.
+# docker run --rm loadimpact/loadgentest-wrk -c 600 -t 600 -d 15m <URL/IP>
+
 
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
@@ -13,15 +16,13 @@ spec:
  minReplicas: 1
  maxReplicas: 3
  targetCPUUtilizationPercentage: 20
- #Scaling Behavior
- behavior:
-  scaleDown:
+ scaleDown:
     stabilizationWindowSeconds: 300
     policies:
     - type: Percent
       value: 100
       periodSeconds: 15
-  scaleUp:
+ scaleUp:
     stabilizationWindowSeconds: 0
     policies:
     - type: Percent
