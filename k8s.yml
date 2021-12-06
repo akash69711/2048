@@ -50,19 +50,3 @@ spec:
 # Following parameters will use the JFROG registry credentials stored in cluster to pull container images                 
             imagePullSecrets:
                 - name: regcred  
-
-
-# Service - Loadbalancer                
----
-apiVersion: v1
-kind: Service
-metadata:
-  name:  "loadbalancer-2048"
-spec:
-  selector:
-    app:  "2048"
-  type:  LoadBalancer 
-  ports:
-  - name:  http
-    port:  80
-    targetPort:  80
